@@ -5,6 +5,7 @@ require 'erb'
 require 'yaml'
 require 'pathname'
 require 'logger'
+require 'omniauth'
 
 module Minstrel
   Root = (Pathname.new(File.dirname(__FILE__)) + '..').expand_path
@@ -21,6 +22,11 @@ module Minstrel
   Database = Sequel.connect(config)
 end
 
+Sequel::Model.plugin :validation_helpers
+
 require "minstrel/version"
+require "minstrel/user"
+require "minstrel/identity"
+require "minstrel/authentication"
 require "minstrel/views"
 require "minstrel/application"

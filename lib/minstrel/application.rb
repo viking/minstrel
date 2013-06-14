@@ -9,6 +9,9 @@ module Minstrel
       :namespace => Minstrel
     }
     enable :reload_templates if development?
+    enable :sessions
+
+    use OmniAuth::Strategies::Developer
 
     get "/" do
       mustache :index
