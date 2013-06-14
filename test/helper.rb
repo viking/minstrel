@@ -17,6 +17,8 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'minstrel'
 
+OmniAuth.config.test_mode = true
+
 class SequenceHelper
   def initialize(name)
     @seq = sequence(name)
